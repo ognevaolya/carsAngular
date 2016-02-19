@@ -1,52 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+     The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Cars</title>
     
     <!-- Bootstrap -->
-    <link href="css/bootstrap.css" rel="stylesheet">
-    <link href="css/font-awesome.css" rel="stylesheet">
-	<link href="css/styles.css" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<link href="css/style.css" rel="stylesheet">
 
 	</head>
 
-	<body>
-        <h1>Home</h1>
-        {{1+2}}
+	<body ng-controller='CarList'>
+    <!-- <div ui-view></div>  -->
+        <header>
+           <!-- навигация -->
+            <div class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container" >
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#responsive-menu">
+                            <span class="sr-only">Open Navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" ui-sref="#"><i class="fa fa-home fa-fw">&nbsp;</i></a>
+                    </div> <!-- navbar-header -->
 
+                    <div id="navbar" class="collapse navbar-collapse" id="responsive-menu">
+                        <ul class="nav navbar-nav">
+                            <li><a ui-sref="#/">Home</a></li>
+                            <li><a ui-sref="#/contact">Contact us</a></li>
+                        </ul>
+                    </div> <!-- collapse navbar-collapse -->
+                </div> <!-- container -->
+            </div> <!-- navbar navbar-inverse navbar-fixed-top -->
+        </header>
+        <div class="container">
+        <br><br>
+            <h1>Home</h1>
+                <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur soluta odio rerum, dolorem quia molestias, architecto in illo obcaecati autem corrupti quos sit repellendus adipisci inventore magni minus omnis! Voluptate?</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum amet ab facilis voluptatibus saepe repellendus suscipit beatae, dolorem adipisci expedita, sed nam ullam dignissimos praesentium nobis odit non. Eaque, quia.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum repellat sint quisquam provident magni quas, sequi vitae natus totam, ducimus commodi sunt blanditiis voluptate non perferendis quidem obcaecati, deserunt maxime!</p>
+             
+            <div class="pictures" ng-repeat="car in cars">
+                <div class="pic">
+                    <img src="{{ car.imageUrl }}" alt="{{ car.name }}">
+                    <span>{{car.name}}</span>
+                </div>
+                <div class="pic">
+                    <img src="img/ford-escape.jpg">
+                    <div>Ford-Escape</div>
+                </div>
+                <div class="pic">
+                    <img src="img/audi-q7.jpg">
+                    <div>Audi-q7</div>
+                </div>
+                <div class="pic">
+                    <img src="img/jaguar-xf.jpg">  
+                    <div>Jaguar-XF</div>
+                </div>
+            </div>     
+        </div> <!-- container -->
+        <footer> 
 
-
-    <div class="container">
-
-    <ng-view></ng-view>
-
-
-    <hr>
-
-    <footer>
-    <p>&copy; Loftblog 2015</p>
-    </footer>
+            <div class="container">
+            <hr>
+                <div class="footer">
+                   
+                    <div class="left">
+                        <a ui-sref="#">Privacy</a>
+                    </div> <!-- left -->
+                    <div class="right">
+                        <a ui-sref="#" class="btn btn-default"><i class="fa fa-facebook-official"></i></a>
+                        <a ui-sref="#" class="btn btn-default"><i class="fa fa-twitter"></i></a>
+                        <a ui-sref="#" class="btn btn-default"><i class="fa fa-youtube"></i></a>
+                    </div> <!-- right -->
+                </div> <!-- footer -->
+            </div> <!-- container -->
+            <br>
+        </footer>
 
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.js"></script>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>  
     <!-- Angular.js core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="bower_components/angular/angular.js"></script>
     <!--Angular.js Route-->
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <!--Angular.js Resource-->
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="js/controllers.js"></script>
+    <script>
+        var myApp = angular.module('myApp', ['ui.router']);
+        // For Component users, it should look like this:
+        // var myApp = angular.module('myApp', [require('angular-ui-router')]);
+    </script>
     </body>
 </html>

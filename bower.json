@@ -1,0 +1,23 @@
+{
+  "name": "cars",
+  "homepage": "https://github.com/ognevaolya/carsAngular",
+  "authors": [
+    "Ogneva <ognevaolya@ukr.net>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "angular": "1.5.0",
+    "angular-ui-router": "^0.2.18"
+  }
+}
